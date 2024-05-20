@@ -20,10 +20,12 @@ public class AnimatorScript : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 mAnimator.SetTrigger("Jump");
+                Debug.Log("SpaceKeyPress");
             }    
             if (Input.GetKeyDown(KeyCode.F))
             {
                 mAnimator.SetTrigger("StartGame");
+                Debug.Log("FKeyPress");
             }
         
         }
