@@ -35,6 +35,7 @@ public class GameStateManager : MonoBehaviour
         switch (targetGameState)
         {
             case GameState.Intro:
+                StartCoroutine(StartCutscene());
                 break;
             case GameState.Playing:
                 break;
@@ -50,5 +51,17 @@ public class GameStateManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private IEnumerator StartCutscene()
+    {
+        Debug.Log("3");
+        yield return new WaitForSeconds(1f);
+        Debug.Log("2");
+        yield return new WaitForSeconds(1f);
+        Debug.Log("1");
+        yield return new WaitForSeconds(1f);
+        Debug.Log("go");
+        ChangeGameState(GameState.Playing);
     }
 }

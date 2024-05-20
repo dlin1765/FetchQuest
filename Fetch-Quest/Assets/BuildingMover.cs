@@ -6,9 +6,6 @@ public class BuildingMover : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject lastBuilding;
-
-    
-
     void Start()
     {
         
@@ -17,7 +14,7 @@ public class BuildingMover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(lastBuilding.transform.position.z <= 2.6)
+        if(transform.childCount == 0)
         {
             Destroy(this.gameObject);
         }
