@@ -2,16 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoadBuildingManager : MonoBehaviour
+public class GeneralObjectMove : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] private GameObject Building1Spawn, Building2Spawn, RoadSpawn;
-    [SerializeField] private GameObject BuildingGroup;
-    public GameObject BuildingObject1;
-    public GameObject BuildingObject2;
-    public GameObject BuildingObject3;
-    public GameObject RoadObject;
-
     private void Awake()
     {
         GameStateManager.gameStateChanged += GameStateManagerGameStateChanged;
@@ -24,7 +17,7 @@ public class RoadBuildingManager : MonoBehaviour
 
     private void GameStateManagerGameStateChanged(GameStateManager.GameState state)
     {
-        if(state != GameStateManager.GameState.Playing)
+        if (state != GameStateManager.GameState.Playing)
         {
             //dont move
         }
@@ -33,13 +26,6 @@ public class RoadBuildingManager : MonoBehaviour
             // move 
         }
     }
-
-
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
