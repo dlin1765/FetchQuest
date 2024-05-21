@@ -27,6 +27,12 @@ public class AnimatorScript : MonoBehaviour
                 mAnimator.SetTrigger("StartGame");
                 Debug.Log("FKeyPress");
             }
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                mAnimator.SetTrigger("Slide");
+                Debug.Log("SKeyPress");
+            }
+
         
         }
     }
