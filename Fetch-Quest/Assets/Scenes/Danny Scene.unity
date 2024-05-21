@@ -358,7 +358,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1806210348913460189, guid: 2e132dc0400c3b44ea47e8ebd38c36d6, type: 3}
       propertyPath: m_Name
-      value: BuildingLane (3)
+      value: Lane2
       objectReference: {fileID: 0}
     - target: {fileID: 6601350771177032830, guid: 2e132dc0400c3b44ea47e8ebd38c36d6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -405,6 +405,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e132dc0400c3b44ea47e8ebd38c36d6, type: 3}
+--- !u!1 &833039933 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1806210348913460189, guid: 2e132dc0400c3b44ea47e8ebd38c36d6, type: 3}
+  m_PrefabInstance: {fileID: 833039932}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &850776077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -415,7 +420,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1806210348913460189, guid: 2e132dc0400c3b44ea47e8ebd38c36d6, type: 3}
       propertyPath: m_Name
-      value: BuildingLane (4)
+      value: Lane3
       objectReference: {fileID: 0}
     - target: {fileID: 6601350771177032830, guid: 2e132dc0400c3b44ea47e8ebd38c36d6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -462,6 +467,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e132dc0400c3b44ea47e8ebd38c36d6, type: 3}
+--- !u!1 &850776078 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1806210348913460189, guid: 2e132dc0400c3b44ea47e8ebd38c36d6, type: 3}
+  m_PrefabInstance: {fileID: 850776077}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,7 +728,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1806210348913460189, guid: 2e132dc0400c3b44ea47e8ebd38c36d6, type: 3}
       propertyPath: m_Name
-      value: BuildingLane (2)
+      value: Lane1
       objectReference: {fileID: 0}
     - target: {fileID: 6601350771177032830, guid: 2e132dc0400c3b44ea47e8ebd38c36d6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -765,6 +775,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e132dc0400c3b44ea47e8ebd38c36d6, type: 3}
+--- !u!1 &1160156632 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1806210348913460189, guid: 2e132dc0400c3b44ea47e8ebd38c36d6, type: 3}
+  m_PrefabInstance: {fileID: 1160156631}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1535206395 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1806210348913460189, guid: 2e132dc0400c3b44ea47e8ebd38c36d6, type: 3}
@@ -814,15 +829,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fe588d30d71fc64185c201482a95639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Lane1: {fileID: 0}
-  Lane2: {fileID: 0}
-  Lane3: {fileID: 0}
-  Lane4: {fileID: 0}
-  SewerHole: {fileID: 0}
-  Car: {fileID: 0}
-  TrainGate: {fileID: 0}
-  GlassPaneBoys: {fileID: 0}
-  Pedestrian: {fileID: 0}
+  Lane1: {fileID: 1160156632}
+  Lane2: {fileID: 833039933}
+  Lane3: {fileID: 850776078}
+  Lane4: {fileID: 2036643787}
+  SewerHole: {fileID: 5889282253579939576, guid: 613b514d9328a6046971aad2f3e3af1b, type: 3}
+  Car: {fileID: 8241079216700117140, guid: 6bd56c7970664ff408074768f6bd9d80, type: 3}
+  TrainGate: {fileID: 512380552889331328, guid: 0ec3dd8976595bd41b5ea2374f98f04e, type: 3}
+  GlassPaneBoys: {fileID: 4033418974287433405, guid: 9d9c64ccdf435ca41893cdf7af25138f, type: 3}
+  Pedestrian: {fileID: 7023752511193101153, guid: c32816b98d8e9494db0756dd35ce9e77, type: 3}
   lane1State: 0
   lane2State: 0
   lane3State: 0
@@ -1005,7 +1020,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1806210348913460189, guid: 2e132dc0400c3b44ea47e8ebd38c36d6, type: 3}
       propertyPath: m_Name
-      value: BuildingLane (5)
+      value: Lane4
       objectReference: {fileID: 0}
     - target: {fileID: 6601350771177032830, guid: 2e132dc0400c3b44ea47e8ebd38c36d6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1052,6 +1067,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e132dc0400c3b44ea47e8ebd38c36d6, type: 3}
+--- !u!1 &2036643787 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1806210348913460189, guid: 2e132dc0400c3b44ea47e8ebd38c36d6, type: 3}
+  m_PrefabInstance: {fileID: 2036643786}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &633285377653300910
 PrefabInstance:
   m_ObjectHideFlags: 0
