@@ -41,7 +41,7 @@ public class ManholeJumpscare : MonoBehaviour
         }
     }
 
-
+    
     void Start()
     {
         originalParent = RobotModel.transform.parent;
@@ -49,18 +49,18 @@ public class ManholeJumpscare : MonoBehaviour
         originalRotation = RobotModel.transform.rotation;
         undergroundPosition = originalPosition - new Vector3(0, riseHeight, 0); 
         robotRigidbody = RobotModel.GetComponent<Rigidbody>();
-        if (robotRigidbody != null)
+       /* if (robotRigidbody != null)
         {
-            robotRigidbody.isKinematic = true; 
+           // robotRigidbody.isKinematic = true; 
         }
-        RobotModel.SetActive(false);
-       
+        */    
+
     }
+    
 
     private IEnumerator StartJumpScare()
     {
         yield return new WaitForSeconds(3);
-        RobotModel.SetActive(true);
         StartCoroutine(RiseRobotSmoothly(riseHeight, riseDuration)); 
         yield return RotateManholeSmoothly(90, rotationDuration); 
     }
@@ -84,7 +84,7 @@ public class ManholeJumpscare : MonoBehaviour
 
     private IEnumerator RiseRobotSmoothly(float height, float duration)
     {
-        RobotModel.transform.SetParent(null); 
+        //RobotModel.transform.SetParent(null); 
 
         Vector3 startPosition = undergroundPosition;
         Vector3 endPosition = originalPosition;
@@ -105,7 +105,7 @@ public class ManholeJumpscare : MonoBehaviour
         RobotModel.transform.rotation = endRotation; 
 
        
-        RobotModel.transform.SetParent(originalParent);
+        //RobotModel.transform.SetParent(originalParent);
 
       
         if (robotRigidbody != null)
