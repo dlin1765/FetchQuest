@@ -5,49 +5,112 @@ using UnityEngine;
 public class ManholeJumpscare : MonoBehaviour
 {
     [SerializeField] private GameObject RobotModel;
+    [SerializeField] private float rotationDuration = 2.0f; // Duration for the rotation
+    [SerializeField] private float riseHeight = 2.0f; // Height the robot should rise
+    [SerializeField] private float riseDuration = 2.0f; // Duration for the robot rise
+
     private Transform originalParent;
     private Vector3 originalPosition;
+    private Quaternion originalRotation;
+    private Vector3 undergroundPosition;
     private Rigidbody robotRigidbody;
 
-  
+    // Start is called before the first frame update
+
+    private void Awake()
+    {
+        GameStateManager.gameStateChanged += GameStateManagerGameStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        GameStateManager.gameStateChanged -= GameStateManagerGameStateChanged;
+    }
+
+    private void GameStateManagerGameStateChanged(GameStateManager.GameState state)
+    {
+        if (state == GameStateManager.GameState.Intro)
+        {
+            //dont move
+            Debug.Log("Intro happening");
+        }
+        else if (state == GameStateManager.GameState.Playing)
+        {
+            StartCoroutine(StartJumpScare());
+            
+        }
+    }
+
+
     void Start()
     {
-        originalParent = RobotModel.transform.parent; 
-        originalPosition = RobotModel.transform.localPosition; 
+        originalParent = RobotModel.transform.parent;
+        originalPosition = RobotModel.transform.position;
+        originalRotation = RobotModel.transform.rotation;
+        undergroundPosition = originalPosition - new Vector3(0, riseHeight, 0); 
         robotRigidbody = RobotModel.GetComponent<Rigidbody>();
         if (robotRigidbody != null)
         {
-            robotRigidbody.isKinematic = true;
+            robotRigidbody.isKinematic = true; 
         }
         RobotModel.SetActive(false);
-        StartCoroutine(StartJumpScare());
+       
     }
 
     private IEnumerator StartJumpScare()
     {
         yield return new WaitForSeconds(3);
         RobotModel.SetActive(true);
-        RotateManhole();
+        StartCoroutine(RiseRobotSmoothly(riseHeight, riseDuration)); 
+        yield return RotateManholeSmoothly(90, rotationDuration); 
     }
 
-    private void RotateManhole()
+    private IEnumerator RotateManholeSmoothly(float angle, float duration)
     {
-        if (robotRigidbody != null)
+        Quaternion startRotation = transform.rotation;
+        Quaternion endRotation = startRotation * Quaternion.Euler(angle, 0, 0);
+
+        float elapsedTime = 0;
+
+        while (elapsedTime < duration)
         {
-            robotRigidbody.isKinematic = true; 
+            transform.rotation = Quaternion.Lerp(startRotation, endRotation, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
         }
 
-        Vector3 worldPosition = RobotModel.transform.position; 
+        transform.rotation = endRotation; 
+    }
 
-        RobotModel.transform.SetParent(null);
-        transform.Rotate(new Vector3(90, 0, 0)); 
+    private IEnumerator RiseRobotSmoothly(float height, float duration)
+    {
+        RobotModel.transform.SetParent(null); 
 
-        RobotModel.transform.position = worldPosition; 
-        RobotModel.transform.SetParent(originalParent); 
+        Vector3 startPosition = undergroundPosition;
+        Vector3 endPosition = originalPosition;
+        Quaternion startRotation = RobotModel.transform.rotation;
+        Quaternion endRotation = originalRotation;
 
+        float elapsedTime = 0;
+
+        while (elapsedTime < duration)
+        {
+            RobotModel.transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / duration);
+            RobotModel.transform.rotation = Quaternion.Lerp(startRotation, endRotation, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        RobotModel.transform.position = endPosition; 
+        RobotModel.transform.rotation = endRotation; 
+
+       
+        RobotModel.transform.SetParent(originalParent);
+
+      
         if (robotRigidbody != null)
         {
-            robotRigidbody.isKinematic = false; 
+            robotRigidbody.isKinematic = false;
         }
     }
 }
