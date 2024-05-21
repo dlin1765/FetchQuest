@@ -40,7 +40,6 @@ public class ManholeJumpscare : MonoBehaviour
             
         }
     }
-
     
     void Start()
     {
@@ -49,12 +48,6 @@ public class ManholeJumpscare : MonoBehaviour
         originalRotation = RobotModel.transform.rotation;
         undergroundPosition = originalPosition - new Vector3(0, riseHeight, 0); 
         robotRigidbody = RobotModel.GetComponent<Rigidbody>();
-       /* if (robotRigidbody != null)
-        {
-           // robotRigidbody.isKinematic = true; 
-        }
-        */    
-
     }
     
 
@@ -85,32 +78,23 @@ public class ManholeJumpscare : MonoBehaviour
     private IEnumerator RiseRobotSmoothly(float height, float duration)
     {
         //RobotModel.transform.SetParent(null); 
-
         Vector3 startPosition = undergroundPosition;
         Vector3 endPosition = originalPosition;
         Quaternion startRotation = RobotModel.transform.rotation;
         Quaternion endRotation = originalRotation;
-
         float elapsedTime = 0;
-
-        while (elapsedTime < duration)
+        while(RobotModel.transform.position.y != riseHeight)
         {
-            RobotModel.transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / duration);
-            RobotModel.transform.rotation = Quaternion.Lerp(startRotation, endRotation, elapsedTime / duration);
-            elapsedTime += Time.deltaTime;
+            RobotModel.transform.position = Vector3.MoveTowards(RobotModel.transform.position, new Vector3(RobotModel.transform.position.x, riseHeight, RobotModel.transform.position.z), 1 * Time.deltaTime);
             yield return null;
-        }
-
-        RobotModel.transform.position = endPosition; 
-        RobotModel.transform.rotation = endRotation; 
-
-       
-        //RobotModel.transform.SetParent(originalParent);
-
-      
-        if (robotRigidbody != null)
-        {
-            robotRigidbody.isKinematic = false;
         }
     }
 }
+
+        
+
+        
+        
+        
+        
+
