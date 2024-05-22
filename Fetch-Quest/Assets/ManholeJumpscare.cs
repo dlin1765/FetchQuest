@@ -48,12 +48,16 @@ public class ManholeJumpscare : MonoBehaviour
         originalRotation = RobotModel.transform.rotation;
         undergroundPosition = originalPosition - new Vector3(0, riseHeight, 0);
         robotRigidbody = RobotModel.GetComponent<Rigidbody>();
+        if(GameStateManager.Instance.currentGameState == GameStateManager.GameState.Playing)
+        {
+            StartCoroutine(StartJumpScare());
+        }
     }
 
 
     private IEnumerator StartJumpScare()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         StartCoroutine(RiseRobotSmoothly(riseHeight, riseDuration));
         yield return RotateManholeSmoothly(90, rotationDuration);
     }

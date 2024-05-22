@@ -93,7 +93,7 @@ public class ObstacleManager : MonoBehaviour
                         {
                             Debug.Log("sewer supposed to spawn");
                             LaneList[whichLane] = LaneState.Jumpable;
-                            StartCoroutine(FreeUpLane(whichLane]));
+                            StartCoroutine(FreeUpLane(whichLane));
                             Instantiate(SewerHole, LaneObj[whichLane].transform.position, Quaternion.identity);
                         }
                         
