@@ -32,7 +32,6 @@ public class Movement : MonoBehaviour
         if (state == GameStateManager.GameState.Intro)
         {
             //dont move
-            Debug.Log("Intro happening");
         }
         else if (state == GameStateManager.GameState.Playing)
         {
@@ -60,7 +59,7 @@ public class Movement : MonoBehaviour
             if (Input.GetButton("Jump") && robotIsOnGround)
             {
                 mAnimator.SetTrigger("Jump");
-                rb.AddForce(new Vector3(0, 5, 0), ForceMode.Impulse);
+                rb.AddForce(new Vector3(0, 7, 0), ForceMode.Impulse);
                 robotIsOnGround = false;
             }
             if (Input.GetKeyDown(KeyCode.S))
@@ -79,7 +78,6 @@ public class Movement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Floor")
         {
-            Debug.Log("entered floor");
             robotIsOnGround = true;
         }
         if(collision.gameObject.tag == "Obstacle")

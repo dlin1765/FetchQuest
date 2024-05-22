@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ProgressBarScript : MonoBehaviour
 {
     [SerializeField] private Scrollbar Bar;
+    public float progressSpeed = 0.01f;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,10 +26,10 @@ public class ProgressBarScript : MonoBehaviour
     private IEnumerator IncreaseProgress()
     {
         float sizeNum = 0f;
-        float chargeSpeed = 0.001f;
+        
         while (GameStateManager.Instance.currentGameState == GameStateManager.GameState.Playing)
         {
-            sizeNum += chargeSpeed * Time.deltaTime;
+            sizeNum += progressSpeed * Time.deltaTime;
             Bar.size = sizeNum;
             yield return null;
             if(Bar.size == 1)

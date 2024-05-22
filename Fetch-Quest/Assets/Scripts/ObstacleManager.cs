@@ -38,7 +38,6 @@ public class ObstacleManager : MonoBehaviour
         if (state == GameStateManager.GameState.Intro)
         {
             //dont move
-            Debug.Log("Intro happening");
         }
         else if (state == GameStateManager.GameState.Playing)
         {
@@ -92,7 +91,6 @@ public class ObstacleManager : MonoBehaviour
                         
                         if(Random.Range(0, 100) <= 10)
                         {
-                            Debug.Log("sewer supposed to spawn");
                             LaneList[whichLane] = LaneState.Jumpable;
                             StartCoroutine(FreeUpLane(whichLane, false));
                             Instantiate(SewerHole, LaneObj[whichLane].transform, false);
@@ -102,7 +100,6 @@ public class ObstacleManager : MonoBehaviour
                     case 1:
                         if (Random.Range(0, 100) <= 5)
                         {
-                            Debug.Log("Car supposed to spawn");
                             if (!carExisting)
                             {
                                 carExisting = true;
@@ -152,9 +149,8 @@ public class ObstacleManager : MonoBehaviour
                         break;
                     case 3:
                         //glass
-                        if (Random.Range(0, 100) <= 5)
+                        if (Random.Range(0, 100) <= 7)
                         {
-                            Debug.Log("boys supposed to spawn");
                             if (whichLane <= 1)
                             {
                                 LaneList[0] = LaneState.Avoidable;
@@ -179,7 +175,6 @@ public class ObstacleManager : MonoBehaviour
                         
                         if (Random.Range(0, 100) <= 6)
                         {
-                            Debug.Log("sewer supposed to spawn");
                             LaneList[whichLane] = LaneState.Jumpable;
                             StartCoroutine(FreeUpLane(whichLane, false));
                             GameObject clone = Instantiate(Pedestrian, new Vector3(LaneObj[whichLane].transform.position.x, LaneObj[whichLane].transform.position.y+2f, LaneObj[whichLane].transform.position.z), Quaternion.identity);
@@ -201,7 +196,7 @@ public class ObstacleManager : MonoBehaviour
 
     private IEnumerator FreeUpLane(int laneNum, bool car)
     {
-        yield return new WaitForSeconds(35f / 10f);
+        yield return new WaitForSeconds(30f / 10f);
         if(car)
         {
             carExisting = false;

@@ -637,6 +637,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bar: {fileID: 1736226770}
+  progressSpeed: 0.01
 --- !u!1 &463965600
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,8 +720,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2.8121405, z: 3.2803116}
-  m_Center: {x: 0, y: 0.90607023, z: 0.1751523}
+  m_Size: {x: 1, y: 10.548126, z: 3.2803116}
+  m_Center: {x: 0, y: 4.774063, z: 0.1751523}
 --- !u!4 &505900614
 Transform:
   m_ObjectHideFlags: 0
@@ -730,7 +731,7 @@ Transform:
   m_GameObject: {fileID: 505900612}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.35, y: 0, z: -3.08}
+  m_LocalPosition: {x: 5.87, y: 0, z: -3.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1942,14 +1943,13 @@ GameObject:
   - component: {fileID: 1171106658}
   - component: {fileID: 1171106657}
   - component: {fileID: 1171106656}
-  - component: {fileID: 1171106655}
   m_Layer: 5
   m_Name: Countdown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1171106654
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1970,18 +1970,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1171106655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1171106653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b88ce57311695f847b15ad131bdec5d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1171106656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2195,7 +2183,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1272732508
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3628,8 +3616,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2.8121405, z: 3.2803116}
-  m_Center: {x: 0, y: 0.90607023, z: 0.1751523}
+  m_Size: {x: 1, y: 6.983883, z: 3.2803116}
+  m_Center: {x: 0, y: 2.9919415, z: 0.1751523}
 --- !u!4 &2052197039
 Transform:
   m_ObjectHideFlags: 0
@@ -3639,7 +3627,7 @@ Transform:
   m_GameObject: {fileID: 2052197037}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6, y: 0, z: -3.08}
+  m_LocalPosition: {x: -5.51, y: 0, z: -3.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5211,7 +5199,6 @@ GameObject:
   - component: {fileID: 8344548723409100210}
   - component: {fileID: 9008284099919407695}
   - component: {fileID: 5691342231061131489}
-  - component: {fileID: 9008284099919407696}
   m_Layer: 0
   m_Name: PlayerModel 1
   m_TagString: Player
@@ -5495,8 +5482,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.49111307, y: 1.474643, z: 0.252182}
-  m_Center: {x: -0.004912585, y: -0.2115657, z: -0.022685766}
+  m_Size: {x: 0.49111307, y: 1.7618339, z: 0.252182}
+  m_Center: {x: -0.004912585, y: -0.067970276, z: -0.022685766}
 --- !u!4 &5077276221731362774
 Transform:
   m_ObjectHideFlags: 0
@@ -5782,7 +5769,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!4 &5775116796331882900
 Transform:
   m_ObjectHideFlags: 0
@@ -6585,28 +6572,6 @@ MonoBehaviour:
   speed: 5
   rb: {fileID: 0}
   robotIsOnGround: 1
---- !u!64 &9008284099919407696
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3800038435089202918}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

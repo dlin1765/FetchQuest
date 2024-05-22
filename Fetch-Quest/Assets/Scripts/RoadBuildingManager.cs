@@ -28,7 +28,7 @@ public class RoadBuildingManager : MonoBehaviour
         if(state == GameStateManager.GameState.Intro)
         {
             //dont move
-            Debug.Log("Intro happening");
+
         }
         else if(state == GameStateManager.GameState.Playing)
         {
@@ -60,7 +60,7 @@ public class RoadBuildingManager : MonoBehaviour
         //10/12.25
         while (isPlaying)
         {
-            yield return new WaitForSeconds(12.15f / 10f);
+            yield return new WaitForSeconds(11f / 10f);
             Instantiate(RoadObject, RoadSpawn.transform.position, Quaternion.identity);
         }
     }
