@@ -6,8 +6,8 @@ using UnityEngine;
 public class AnimatorScript : MonoBehaviour
 {
     private Animator mAnimator;
-    public float speed = 10f;
     public Rigidbody rb;
+    public bool robotIsOnGround;
 
 
     // Start is called before the first frame update
@@ -20,18 +20,13 @@ public class AnimatorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
-        float vertical = Input.GetAxis("Vertical") * Time.deltaTime * speed;
-
-        transform.Translate(horizontal, 0, vertical);
-
 
         if (mAnimator != null)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && robotIsOnGround)
             {
+                robotIsOnGround = false;
                 mAnimator.SetTrigger("Jump");
-                rb.AddForce(new Vector3(0, 5, 0), ForceMode.Impulse);
                 Debug.Log("SpaceKeyPress");
             }
             if (Input.GetKeyDown(KeyCode.F))
@@ -49,6 +44,12 @@ public class AnimatorScript : MonoBehaviour
         }
 
     }
-
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "Floor")
+        {
+            robotIsOnGround = true;
+        }
+    }
 
 }

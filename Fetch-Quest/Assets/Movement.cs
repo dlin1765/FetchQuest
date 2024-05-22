@@ -7,7 +7,7 @@ public class Movement : MonoBehaviour
     public float speed = 10f;
     public Rigidbody rb;
     public bool robotIsOnGround = true;
-
+    private float horizontal;
     
     void Start()
     {
@@ -17,10 +17,11 @@ public class Movement : MonoBehaviour
     
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
+        horizontal = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
 
         
         transform.Translate(horizontal, 0, 0);
+       
 
         
         if (Input.GetButton("Jump") && robotIsOnGround)
@@ -33,7 +34,7 @@ public class Movement : MonoBehaviour
     
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.name == "Floor")
         {
             robotIsOnGround = true;
         }
