@@ -10,6 +10,7 @@ public class ObstacleManager : MonoBehaviour
     private List<GameObject> ObstacleList;
     private List<GameObject> LaneObj;
     private List<LaneState> LaneList;
+    private bool carExisting = false;
     public enum LaneState
     {
         Free,
@@ -89,44 +90,102 @@ public class ObstacleManager : MonoBehaviour
                 {
                     case 0:
                         
-                        if(Random.Range(0, 100) <= 20)
+                        if(Random.Range(0, 100) <= 10)
                         {
                             Debug.Log("sewer supposed to spawn");
                             LaneList[whichLane] = LaneState.Jumpable;
-                            StartCoroutine(FreeUpLane(whichLane));
-                            Instantiate(SewerHole, LaneObj[whichLane].transform.position, Quaternion.identity);
+                            StartCoroutine(FreeUpLane(whichLane, false));
+                            Instantiate(SewerHole, LaneObj[whichLane].transform, false);
                         }
                         
                         break;
                     case 1:
-                        if (Random.Range(0, 100) <= 10)
+                        if (Random.Range(0, 100) <= 5)
                         {
                             Debug.Log("Car supposed to spawn");
+                            if (!carExisting)
+                            {
+                                carExisting = true;
+                                if (whichLane <= 1)
+                                {
+                                    LaneList[0] = LaneState.Avoidable;
+                                    LaneList[1] = LaneState.Avoidable;
+                                    StartCoroutine(FreeUpLane(0, true));
+                                    StartCoroutine(FreeUpLane(1, true));
+                                    //Instantiate(Car, new Vector3(LaneObj[0].transform.position.x, LaneObj[0].transform.position.y, LaneObj[0].transform.position.z), Quaternion.identity);
+                                    Instantiate(Car, new Vector3(LaneObj[0].transform.position.x + 19.99f, LaneObj[0].transform.position.y, LaneObj[0].transform.position.z), Quaternion.identity, LaneObj[0].transform);
+                                }
+                                else
+                                {
+                                    LaneList[2] = LaneState.Avoidable;
+                                    LaneList[3] = LaneState.Avoidable;
+                                    StartCoroutine(FreeUpLane(2, true));
+                                    StartCoroutine(FreeUpLane(3, true));
+                                    //Instantiate(Car, new Vector3(LaneObj[2].transform.position.x, LaneObj[2].transform.position.y, LaneObj[2].transform.position.z), Quaternion.identity);
+                                    Instantiate(Car, new Vector3(LaneObj[2].transform.position.x + 19.75f, LaneObj[2].transform.position.y, LaneObj[2].transform.position.z), Quaternion.identity, LaneObj[2].transform);
+                                }
+                            }
+                        }
+                        break;
+                    case 2:
+                        //train
+                        /*
+                        if (whichLane <= 1)
+                        {
+                            LaneList[0] = LaneState.Avoidable;
+                            LaneList[1] = LaneState.Avoidable;
+                            StartCoroutine(FreeUpLane(0));
+                            StartCoroutine(FreeUpLane(1));
+                            //Instantiate(Car, new Vector3(LaneObj[0].transform.position.x, LaneObj[0].transform.position.y, LaneObj[0].transform.position.z), Quaternion.identity);
+                            Instantiate(Car, new Vector3(LaneObj[0].transform.position.x + 30.6f, LaneObj[0].transform.position.y, LaneObj[0].transform.position.z), Quaternion.identity, LaneObj[0].transform);
+                        }
+                        else
+                        {
+                            LaneList[2] = LaneState.Avoidable;
+                            LaneList[3] = LaneState.Avoidable;
+                            StartCoroutine(FreeUpLane(2));
+                            StartCoroutine(FreeUpLane(3));
+                            //Instantiate(Car, new Vector3(LaneObj[2].transform.position.x, LaneObj[2].transform.position.y, LaneObj[2].transform.position.z), Quaternion.identity);
+                            Instantiate(Car, new Vector3(LaneObj[2].transform.position.x + 14.04f, LaneObj[2].transform.position.y, LaneObj[2].transform.position.z), Quaternion.identity, LaneObj[2].transform);
+                        }
+                        */
+                        break;
+                    case 3:
+                        //glass
+                        if (Random.Range(0, 100) <= 5)
+                        {
+                            Debug.Log("boys supposed to spawn");
                             if (whichLane <= 1)
                             {
                                 LaneList[0] = LaneState.Avoidable;
                                 LaneList[1] = LaneState.Avoidable;
-                                StartCoroutine(FreeUpLane(0));
-                                StartCoroutine(FreeUpLane(1));
+                                StartCoroutine(FreeUpLane(0, false));
+                                StartCoroutine(FreeUpLane(1, false));
                                 //Instantiate(Car, new Vector3(LaneObj[0].transform.position.x, LaneObj[0].transform.position.y, LaneObj[0].transform.position.z), Quaternion.identity);
-                                Instantiate(Car, new Vector3(LaneObj[0].transform.position.x+25.6f, LaneObj[0].transform.position.y, LaneObj[0].transform.position.z), Quaternion.identity, LaneObj[0].transform);
+                                Instantiate(GlassPaneBoys, new Vector3(LaneObj[0].transform.position.x - 3.32f, LaneObj[0].transform.position.y, LaneObj[0].transform.position.z), Quaternion.identity, LaneObj[0].transform);
                             }
                             else
                             {
                                 LaneList[2] = LaneState.Avoidable;
                                 LaneList[3] = LaneState.Avoidable;
-                                StartCoroutine(FreeUpLane(2));
-                                StartCoroutine(FreeUpLane(3));
+                                StartCoroutine(FreeUpLane(2, false));
+                                StartCoroutine(FreeUpLane(3, false));
                                 //Instantiate(Car, new Vector3(LaneObj[2].transform.position.x, LaneObj[2].transform.position.y, LaneObj[2].transform.position.z), Quaternion.identity);
-                                Instantiate(Car, new Vector3(LaneObj[2].transform.position.x+14.04f, LaneObj[2].transform.position.y, LaneObj[2].transform.position.z), Quaternion.identity, LaneObj[2].transform);
-                            } 
+                                Instantiate(GlassPaneBoys, new Vector3(LaneObj[2].transform.position.x -3.25f, LaneObj[2].transform.position.y, LaneObj[2].transform.position.z), Quaternion.identity, LaneObj[2].transform);
+                            }
                         }
                         break;
-                    case 2:
-                        break;
-                    case 3:
-                        break;
                     case 4:
+                        
+                        if (Random.Range(0, 100) <= 6)
+                        {
+                            Debug.Log("sewer supposed to spawn");
+                            LaneList[whichLane] = LaneState.Jumpable;
+                            StartCoroutine(FreeUpLane(whichLane, false));
+                            GameObject clone = Instantiate(Pedestrian, new Vector3(LaneObj[whichLane].transform.position.x, LaneObj[whichLane].transform.position.y+2f, LaneObj[whichLane].transform.position.z), Quaternion.identity);
+                 
+                        }
+                        
                         break;
                 }
                 yield return null;
@@ -144,9 +203,13 @@ public class ObstacleManager : MonoBehaviour
     // they can only spawn in lanes that are free 
     // 
 
-    private IEnumerator FreeUpLane(int laneNum)
+    private IEnumerator FreeUpLane(int laneNum, bool car)
     {
         yield return new WaitForSeconds(35f / 10f);
+        if(car)
+        {
+            carExisting = false;
+        }
         LaneList[laneNum] = LaneState.Free;
     }
 

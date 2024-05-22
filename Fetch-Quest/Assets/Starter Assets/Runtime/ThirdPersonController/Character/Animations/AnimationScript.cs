@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class AnimatorScript : MonoBehaviour
 {
     private Animator mAnimator;
@@ -15,12 +16,19 @@ public class AnimatorScript : MonoBehaviour
     {
         mAnimator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+       
+    }
+    private void Awake()
+    {
+        //GameStateManager.gameStateChanged += GameStateManagerGameStateChanged;
+       
     }
 
     // Update is called once per frame
     void Update()
     {
 
+        
         if (mAnimator != null)
         {
             if (Input.GetKeyDown(KeyCode.Space) && robotIsOnGround)

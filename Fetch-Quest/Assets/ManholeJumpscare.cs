@@ -6,7 +6,7 @@ public class ManholeJumpscare : MonoBehaviour
 {
     [SerializeField] private GameObject RobotModel;
     [SerializeField] private float rotationDuration = 2.0f; // Duration for the rotation
-    [SerializeField] private float riseHeight = 2.0f; // Height the robot should rise
+    [SerializeField] private float riseHeight = -.7f; // Height the robot should rise
     [SerializeField] private float riseDuration = 2.0f; // Duration for the robot rise
 
     private Transform originalParent;

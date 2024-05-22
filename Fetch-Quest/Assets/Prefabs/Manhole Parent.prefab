@@ -1339,7 +1339,7 @@ Transform:
   m_GameObject: {fileID: 4909789958135436685}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -137.76416, y: 247.38266, z: -1582.6448}
+  m_LocalPosition: {x: 0, y: -1.841, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1865,7 +1865,7 @@ Transform:
   m_GameObject: {fileID: 6291198834061764108}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 139.97002, y: -249.17226, z: 1638.4048}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2233,7 +2233,7 @@ Transform:
   m_GameObject: {fileID: 7987921463639776452}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -137.73001, y: 249.25226, z: -1582.6448}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.6262125, y: 0.0015724079, z: 1.4820918}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2303,7 +2303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RobotModel: {fileID: 4909789958135436685}
   rotationDuration: 2
-  riseHeight: 2
+  riseHeight: -0.7
   riseDuration: 2
 --- !u!1 &8002815991041131427
 GameObject:
