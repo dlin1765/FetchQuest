@@ -37,27 +37,40 @@ public class Movement : MonoBehaviour
         else if (state == GameStateManager.GameState.Playing)
         {
             mAnimator.SetTrigger("StartGame");
+            StartCoroutine(PlayerControls());
 
+        }
+        else if(state == GameStateManager.GameState.Win)
+        {
+            Destroy(this.gameObject);
         }
     }
 
     void Update()
     {
-        horizontal = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
-        transform.Translate(horizontal, 0, 0);
-        if (Input.GetButton("Jump") && robotIsOnGround)
-        {
-            mAnimator.SetTrigger("Jump");
-            rb.AddForce(new Vector3(0, 5, 0), ForceMode.Impulse);
-            robotIsOnGround = false;
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            mAnimator.SetTrigger("Slide");
-            Debug.Log("SKeyPress");
-        }
+       
     }
 
+    private IEnumerator PlayerControls()
+    {
+        while(this.gameObject != null)
+        {
+            horizontal = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
+            transform.Translate(horizontal, 0, 0);
+            if (Input.GetButton("Jump") && robotIsOnGround)
+            {
+                mAnimator.SetTrigger("Jump");
+                rb.AddForce(new Vector3(0, 5, 0), ForceMode.Impulse);
+                robotIsOnGround = false;
+            }
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                mAnimator.SetTrigger("Slide");
+                Debug.Log("SKeyPress");
+            }
+            yield return null;
+        }
+    }
 
 
 
@@ -68,6 +81,11 @@ public class Movement : MonoBehaviour
         {
             Debug.Log("entered floor");
             robotIsOnGround = true;
+        }
+        if(collision.gameObject.tag == "Obstacle")
+        {
+            GameStateManager.Instance.ChangeGameState(GameStateManager.GameState.Failure);
+            Destroy(this.gameObject);
         }
     }
 }

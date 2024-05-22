@@ -190,10 +190,6 @@ public class ObstacleManager : MonoBehaviour
                 }
                 yield return null;
             }
-            else
-            {
-                Debug.Log("no free lanes");
-            }
             yield return null;
         }
     }

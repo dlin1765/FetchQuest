@@ -5245,7 +5245,7 @@ GameObject:
   - component: {fileID: 1210721440075236361}
   m_Layer: 0
   m_Name: SimpleRobot
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5259,8 +5259,8 @@ Transform:
   m_GameObject: {fileID: 7023752511193101153}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.55, y: 2.55, z: 29.51}
-  m_LocalScale: {x: 0.69, y: 0.45029795, z: 0.32078338}
+  m_LocalPosition: {x: -0.55099, y: 2.3674, z: 29.515}
+  m_LocalScale: {x: 0.5485086, y: 0.35795984, z: 0.25500354}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6274319535364327608}
@@ -5292,8 +5292,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 4.9550643, z: 1}
-  m_Center: {x: 0, y: -1.9775267, z: 0}
+  m_Size: {x: 1.5376245, y: 6.327286, z: 1}
+  m_Center: {x: -0.018745692, y: -2.6636403, z: 0}
 --- !u!114 &1210721440075236361
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4333992743233459797}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19542,7 +19542,7 @@ GameObject:
   - component: {fileID: 801071347586911394}
   m_Layer: 0
   m_Name: Car
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19556,8 +19556,8 @@ Transform:
   m_GameObject: {fileID: 8241079216700117140}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.25, y: 0.19902, z: 50.1839}
-  m_LocalScale: {x: 1.628291, y: 1, z: 1}
+  m_LocalPosition: {x: 22.25, y: 0.19902, z: 50.077}
+  m_LocalScale: {x: 1.628291, y: 1, z: 0.90023494}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1221481651512345079}

@@ -11,6 +11,8 @@ public class GameStateManager : MonoBehaviour
 
     public static event Action<GameState> gameStateChanged;
 
+    [SerializeField] private GameObject GameOverUI;
+
     public enum GameState
     {
         Intro,
@@ -40,6 +42,7 @@ public class GameStateManager : MonoBehaviour
             case GameState.Playing:
                 break;
             case GameState.Failure:
+                GameOverUI.SetActive(true);
                 break;
             case GameState.Win:
                 break;
